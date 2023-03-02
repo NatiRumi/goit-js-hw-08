@@ -5,11 +5,13 @@ const player = new Vimeo.Player(iframe);
 
 
 var onPlay = function(data) {
-    console.log(data.seconds);
+    // console.log(data.seconds);
     localStorage.setItem('videoplayer-current-time', data.seconds);
   };
-  player.on('timeupdate', throttle(onPlay, 1000));
 
+player.on('timeupdate', throttle(onPlay, 1000));
+
+player.off('ended', onPlay);
 
 player.setCurrentTime(localStorage.getItem('videoplayer-current-time')).then(function(seconds) {
   }).catch(function(error) {
