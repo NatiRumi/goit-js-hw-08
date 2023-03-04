@@ -29,11 +29,11 @@ function onFormSubmit(e) {
 function pageReload() {
     const saveMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
     
-    if(saveMessage.email) {
+    if(saveMessage?.email) {
         refs.input.value = saveMessage.email;
         formData.email = saveMessage.email;     
     }
-    if(saveMessage.message) {
+    if(saveMessage?.message) {
         refs.textarea.value = saveMessage.message;
         formData.message = saveMessage.message;
     }
